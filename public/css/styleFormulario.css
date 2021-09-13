@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffcc08;
+  font-family: "Roboto", Arial;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 500px;
+  padding: 40px;
+  margin: auto;
+}
+
+.loader-wrapper{
+	
+  margin: 0;
+	position: fixed;
+	width: 70%;
+	height: 80%;
+	z-index: 1;
+  
+}
+.contenedor-formulario {
+  width: 100%;
+  color: rgba(255,255,255,0.7);
+  padding: 50px;
+}
+.contenedor-formulario .formulario {
+  width: 100%;
+  margin: auto;
+}
+
+.contenedor-formulario .formulario .input-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+.contenedor-formulario .formulario .input-group input[type="text"],
+.contenedor-formulario .formulario .input-group input[type="email"],
+.contenedor-formulario .formulario .input-group input[type="text2"] {
+  font-family: "Roboto", Arial;
+  font-size: 16px;
+  color: #141414;
+  width: 100%;
+  outline: none;
+  padding: 15px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  transition: all 0.1s ease;
+}
+.contenedor-formulario .formulario .input-group input[type="text"]:focus,
+.contenedor-formulario .formulario .input-group input[type="text"]:active,
+.contenedor-formulario .formulario .input-group input[type="email"]:focus,
+.contenedor-formulario .formulario .input-group input[type="email"]:active,
+.contenedor-formulario .formulario .input-group input[type="text2"]:focus,
+.contenedor-formulario .formulario .input-group input[type="text2"]:active{
+  outline: none;
+  border-bottom: 2px solid white;
+}
+.contenedor-formulario .formulario .input-group input[type="text"].error,
+.contenedor-formulario .formulario .input-group input[type="email"].error,
+.contenedor-formulario .formulario .input-group input[type="text2"].error{
+  border-bottom: 2px solid #D32F2F;
+}
+.contenedor-formulario .formulario .input-group input[type="text"].error + label,
+.contenedor-formulario .formulario .input-group input[type="email"].error + label,
+.contenedor-formulario .formulario .input-group input[type="text2"].error{
+  color: #D32F2F;
+}
+.contenedor-formulario .formulario .input-group label.label{
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-left: 25px;
+  font-size: 16px;
+  line-height: 16px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+.contenedor-formulario .formulario .input-group label.label.active {
+  top: -12px;
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.contenedor-formulario .formulario .input-group.radio label {
+  display: inline-block;
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  padding: 5px 15px 5px 51px;
+  font-size: 1em;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.contenedor-formulario .formulario .input-group.radio label:hover {
+  background: rgba(255,255,255,0.3);
+}
+.contenedor-formulario .formulario .input-group.radio label:before {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 15px;
+  top: 2px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid white;
+}
+.contenedor-formulario .formulario .input-group.error label{
+  color: #D32F2F;
+  
+}
+.contenedor-formulario .formulario .input-group.error label:before {
+  border: 2px solid #D32F2F;
+}
+.contenedor-formulario .formulario .input-group.error label:hover {
+  background: rgba(211, 47, 47, 0.2);
+}
+.contenedor-formulario .formulario .input-group.radio input[type="radio"] {
+  display: none;
+}
+.contenedor-formulario .formulario .input-group.radio input[type="radio"]:checked + label:before {
+  display: none;
+}
+.contenedor-formulario .formulario .input-group.radio input[type="radio"]:checked + label {
+  padding: 5px 15px;
+  background: white;
+  border-radius: 2px;
+  color: #ffcc08;
+}
+.contenedor-formulario .formulario input[type="submit"] {
+  background: rgba(255,255,255,0.5);
+  border: none;
+  color: #ffcc08;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto", Arial;
+  font-size: 16px;
+  padding: 25px;
+  width: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.contenedor-formulario .formulario input[type="submit"]:hover {
+  background: white;
+}

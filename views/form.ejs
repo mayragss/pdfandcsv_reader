@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/sideBarStyle.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="/css/styleFormulario.css" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="/css/loader-6.css">
+  
+  <title>Formulário</title>
+ <style>
+ a{
+   text-decoration: none;
+ }
+ </style>
+  <script>
+
+    function DadosPessoais(){
+      if (document.getElementById("dadosPessoais").style.display != "block")
+      {
+        document.getElementById("educacao").style.display = "none";
+        document.getElementById("loader-6").style.display = "block";
+        setTimeout(function()
+        {      
+          document.getElementById("loader-6").style.display = "none";
+          document.getElementById("dadosPessoais").style.display = "block";
+        },1000)
+      }
+    }
+
+    function Educacao(){
+      if (document.getElementById("educacao").style.display != "block")
+      {
+        document.getElementById("dadosPessoais").style.display = "none";
+      
+        document.getElementById("loader-6").style.display = "block";
+        setTimeout(function()
+        {
+          document.getElementById("loader-6").style.display = "none";
+          document.getElementById("educacao").style.display = "block";
+        },1000)
+      }
+     
+    }
+
+
+    
+    </script>
+
+</head>
+
+<body>
+  <!-- The main article of the Tutorial page -->
+    <article id="tutorial">
+        <div class="main">
+          <div class="side_bar">
+            <div class="logo">
+              <i class="fas fa-award"></i>
+            </div>
+  
+  
+            <section class="navigation">
+  
+  
+              <div class="svg-wrapper" onclick="DadosPessoais()" style="cursor:Pointer" >
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width=100% />
+                </svg>
+                <div class="text"><i class="fas fa-bars"></i>Dados Pessoais</div>
+              </div>
+  
+              <div class="svg-wrapper" onclick="Educacao()" style="cursor:pointer">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width=100% />
+                </svg>
+                <div class="text"><i class="far fa-plus-square"></i>Educação & Formação</div>
+              </div>
+  
+              <div class="svg-wrapper" onclick="Profissional()" style="cursor:Pointer;">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width=100% />
+                </svg>
+                <div class="text"><i class="far fa-edit"></i>Experiência Profissional</div>
+              </div>
+  
+              <div class="svg-wrapper" onclick="Linguisticas()" style="cursor:Pointer;">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width=100% />
+                </svg>
+                <div class="text"><i class="fas fa-user-edit"></i>Competências Linguisticas</div>
+              </div>
+  
+              <div class="svg-wrapper" onclick="Projeto()" style="display:none;">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width=100% />
+                </svg>
+                <div class="text"><i class="far fa-plus-square"></i>Projetos</div>
+              </div>
+  
+              <div class="svg-wrapper" style="cursor: pointer;">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="active" height="60" width=100% />
+                </svg>
+                <div  class="text"><i class="fas fa-file-upload"></i></i>
+                  <a target="_blank" href="/form/pdf/<%= form.Guid%>"> Mostrar PDF</a>
+                </div>
+              </div>
+  
+              <div class="svg-wrapper" style="cursor: pointer;">
+                <svg height="60" width="250" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="active" height="60" width=100% />
+                </svg>
+                <div  class="text"><i class="fas fa-file-upload"></i></i>
+                  <a target="_blank" href="/form/send/<%= form.Guid%>"> Enviar Email</a>
+                </div>
+              </div>
+  
+              <img src="/img/sent.png" width="80" height="80" style="margin:0;cursor: pointer;" >
+  
+            </section>
+          </div>
+          
+          <div class="contenedor-formulario">
+            <a href="../PRINCIPAL/index.html">
+              <img src="/img/back-button.png" style="cursor:pointer;width: 50px;height: 50px;position: fixed;"></a>
+              <div class="loader-wrapper" id="loader-6" style="display: none;">
+                <div id="loader"></div>
+              </div>
+            <div class="wrap">
+
+                
+                <form action="form/<%= form.Guid %>?_method=PUT" class="formulario" name="formulario_registro" method="post">
+                    
+                  
+                  <div id="dadosPessoais" style="display: block;">
+
+                    <center><h2 >Dados Pessoais</h2></center>
+                 
+                        
+                        <div class="input-group">
+                            <input type="text" id="nombre" name="form[Nome]" value="<%= form.Nome%>"/>
+                            <label class="label" for="nombre">Nome</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" id="email" name="form[Email]" value="<%=form.Email%>"/>
+                            <label class="label" for="email">E-mail</label>
+                        </div>
+
+                        
+                        <div class="input-group">
+                          <input type="text" id="idade" name="form[idade]" value="<%=form.Idade%>"/>
+                          <label class="label" for="idade">Idade</label>
+                        </div>
+ 
+
+                        <div class="input-group">
+                            <input type="text" id="text2" name="form[Morada]" value="<%=form.Morada%>"/>
+                            <label class="label" for="text2">Morada completa</label>
+                        </div>
+
+                        <div class="input-group radio">
+                            <%if(form.Genero == "M"){%>
+                            <input type="radio" checked name="form[Genero]" value="<%=form.Genero%>" id="hombre"/>
+                            <label class="label" for="hombre">Masculino</label>
+                            <%}%>
+                            <%if(form.Genero == "F"){%>
+                            <input type="radio" checked name="form[Genero]" value="<%=form.Genero%>" id="mujer"/>
+                            <label class="label" for="mujer">Feminino</label>
+                            <%}%>
+                        </div>
+
+
+
+                    </div>
+
+                    <div id="educacao" style="display: none;" onclick="CarregarEducacao()">
+
+                      <center><h2 >Educação e Formação</h2></center>
+
+                          <div class="input-group">
+                            <input type="text" id="Instituicao" name="form[Instituicao]"  value="<%=form.Instituicao%>"/>
+                            <label class="label" for="nombre">Escola Frequentada</label>
+                          </div>
+
+                          <div class="input-group">
+                            <input type="text" id="instituicao" name="form[Curso]" value="<%=form.Curso%>" />
+                            <label class="label" for="text">Curso</label>
+                          </div>
+
+                        
+                          <div class="input-group">
+                            <input type="text" id="text" name="form[AnoConclusao]"  value="<%=form.AnoConclusao%>"/>
+                            <label class="label" for="text">Ano de Conclusão</label>
+                          </div>
+
+                    </div>
+
+                </form>
+            
+            </div>
+
+
+        </div>
+
+</article>
+
+    </body>
+    <script>
+
+      function CarregarEducacao(){
+        alert("PORRA");
+        document.getElementById("dadosPessoais").style.display = "none";
+        
+        document.getElementById("educacao").style.display = "block";
+      }
+      </script>
+    <script src="/js/scriptFormulario.js"></script>
+</html>

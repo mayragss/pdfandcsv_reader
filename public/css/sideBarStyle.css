@@ -1,0 +1,123 @@
+.main{
+  display: grid;
+  grid-template-columns:minmax(150px,25%) 1fr;
+  grid-gap:0%;
+}
+.side_bar{
+  position: fixed;
+  overflow:auto;
+  left:0;
+  height:102%;
+  box-shadow:5px 5px 20px 6px #d3d3d3;
+  padding:15px;
+  position:relative;
+  background-color:#1A2226;
+  color:White;
+  text-align:center;
+  .fa-award{ 
+    font-size:100px;
+  }
+  .fa-bars, .far, .fas, .fa-sign-out-alt, .fa-edit, .fa-plus-square{
+    padding-right:10px;
+  }
+}
+
+#mostrarPDF{
+  background-color: white;
+}
+.profile{
+    place-items:center;
+    margin: 0 auto;
+    padding-top: 56px;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 100%;
+    max-width:960px;
+    .input-page{
+      overflow: auto;
+      border-radius:5px;
+      padding: 30px;
+      height:auto;
+      max-height: 650px;
+      width:100%;
+      background:white;
+      box-shadow:3px 2px 15px 2px gray;
+      .field-icon {
+        float: right;
+        margin-left: -25px;
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+      }
+      .form-row{
+        padding-top:15px;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:18px;
+        color: lighten(green,7%);
+        margin:5px;
+      }
+      .form-control:hover{
+        background-color:  #EFEFEF!important;
+      }
+      table{
+        text-align: center;
+        input{
+          border: 0px solid;
+        }
+      }
+  }
+}
+
+
+.navigation{
+  margin: 60px 0px;
+}
+.svg-wrapper {
+  height: 60px;
+  margin-top:9%;
+  position: relative;
+  transform: translateY(-50%);
+  width:100%;
+}
+
+.shape {
+  fill: transparent;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  stroke: #19f6e8;
+}
+.active{
+  fill: transparent;
+  stroke-dasharray: 760;
+  stroke-dashoffset: 0;
+  stroke-width: 8px;
+  stroke: #19f6e8;
+}
+
+.text {
+  color: #fff;
+  font-family: 'Kreon', serif;
+  letter-spacing: 3px;
+  line-height: 32px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 4px;
+  }
+}
+
+.svg-wrapper:hover .shape {
+  -webkit-animation: 0.5s draw linear forwards;
+  animation: 0.5s draw linear forwards;
+}

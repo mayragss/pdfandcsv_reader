@@ -3,11 +3,15 @@ let express = require('express'),
     methodOverride = require("method-override"),
     bodyParser = require('body-parser'),
     fileUpload = require('express-fileupload'),
-    extension = require("./Shared/Extension");
+    extension = require("./shared/Extension");
 let fs = require('fs');
 let csv = require('csv-parser');
 let mongoose = require('mongoose');
 const mongoDev = "mongodb://localhost/csvReader_db";
+
+let asyncHandler = require('./shared/middleware');
+
+app.use(express.static(__dirname + "/public"));
 
 mongoose.connect(
   process.env.MONGOPRD || mongoDev,
@@ -21,6 +25,9 @@ mongoose.connect(
   }
 );
 
+app.use(asyncHandler(async (req, res, next) => {
+  next();
+}));
 
 mongoose.Promise = global.Promise;
 
@@ -61,7 +68,7 @@ app.use(methodOverride("_method"));
 app.post('/csv', (req, res) => {
   try {
       if (!req.files || Object.keys(req.files).length === 0) {
-          return res.status(400).send('No files were uploaded.');
+          return res.status(400).send('Selecione um ficheiro.');
         }
         let sampleFile = req.files.input;
         const results = [];
@@ -88,11 +95,11 @@ app.post('/csv', (req, res) => {
 });
 
 app.get('/', (req,res)=>{
-  res.render("upload");
+  res.render("uploadFile");
 })
 
 
-app.use('/csv', csvReader);
+app.use('/form', csvReader);
 
 var port = process.env.PORT || 2021;
 const server = app.listen(port, function () {

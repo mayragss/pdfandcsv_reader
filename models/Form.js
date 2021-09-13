@@ -3,9 +3,15 @@ let mongoose = require('mongoose');
 let formSchema = new mongoose.Schema({
     Nome: String,
     Idade: Number,
-    Peso: String,
+    Morada: String,
+    Genero: String,
+    Instituicao: String,
+    Curso: String,
+    AnoConclusao: String,
     Status: String,
-    Guid: String
+    Guid: String,
+    Email: String,
+    Link: String
 });
 
 module.exports = mongoose.model("Formulario", formSchema);
